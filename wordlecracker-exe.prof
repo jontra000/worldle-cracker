@@ -1,0 +1,110 @@
+	Fri Apr 08 21:25 2022 Time and Allocation Profiling Report  (Final)
+
+	   wordlecracker-exe.exe +RTS -N -p -RTS
+
+	total time  =        0.00 secs   (6 ticks @ 1000 us, 16 processors)
+	total alloc = 141,657,296 bytes  (excludes profiling overheads)
+
+COST CENTRE            MODULE    SRC                        %time %alloc
+
+isMatchChar.freeChars  Lib       src\Lib.hs:41:15-47         33.3   58.0
+isMatchChar            Lib       src\Lib.hs:(36,1)-(45,42)   33.3   19.3
+isMatchChar.freeMatch  Lib       src\Lib.hs:44:15-52         16.7    0.0
+isMatch                Lib       src\Lib.hs:(31,1)-(33,74)   16.7    8.8
+potentialMatches       Lib       src\Lib.hs:22:1-77           0.0    9.1
+largestResultSet       Lib       src\Lib.hs:19:1-99           0.0    1.0
+isMatch.indexedResults Lib       src\Lib.hs:32:11-43          0.0    2.6
+isMatch.freeIndices    Lib       src\Lib.hs:33:11-74          0.0    1.0
+
+
+                                                                                                                                      individual      inherited
+COST CENTRE                       MODULE                         SRC                                               no.     entries  %time %alloc   %time %alloc
+
+MAIN                              MAIN                           <built-in>                                        192           0    0.0    0.0   100.0  100.0
+ CAF                              GHC.IO.Handle.FD               <entire-module>                                   368           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.FD                      <entire-module>                                   367           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.Event.Windows.ConsoleEvent <entire-module>                                   328           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.Conc.POSIX                 <entire-module>                                   324           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.StdHandles              <entire-module>                                   286           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Encoding.CodePage       <entire-module>                                   273           0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Encoding                <entire-module>                                   272           0    0.0    0.0     0.0    0.0
+ CAF:allResults_rhV               Lib                            src\Lib.hs:28:1-10                                235           0    0.0    0.0     0.0    0.0
+  allResults                      Lib                            src\Lib.hs:28:1-112                               433           1    0.0    0.0     0.0    0.0
+ CAF:defaultSplitter              Data.List.Split.Internals      src\Data\List\Split\Internals.hs:58:1-15          248           0    0.0    0.0     0.0    0.0
+  defaultSplitter                 Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(58,1)-(63,28)   401           1    0.0    0.0     0.0    0.0
+ CAF:lvl2_r3rp                    Lib                            <no location info>                                229           0    0.0    0.0     0.0    0.0
+  solve                           Lib                            src\Lib.hs:16:1-63                                438           0    0.0    0.0     0.0    0.0
+   minimumBy                      Lib                            src\Lib.hs:13:1-58                                439           0    0.0    0.0     0.0    0.0
+    minimumBy.\                   Lib                            src\Lib.hs:13:47-54                               440           0    0.0    0.0     0.0    0.0
+     largestResultSet             Lib                            src\Lib.hs:19:1-99                                441           0    0.0    0.0     0.0    0.0
+      potentialMatches            Lib                            src\Lib.hs:22:1-77                                442           0    0.0    0.0     0.0    0.0
+       isMatch                    Lib                            src\Lib.hs:(31,1)-(33,74)                         443           0    0.0    0.0     0.0    0.0
+        isMatch.indexedResults    Lib                            src\Lib.hs:32:11-43                               444           0    0.0    0.0     0.0    0.0
+ CAF:main1                        Main                           <no location info>                                200           0    0.0    0.0     0.0    0.0
+  main                            Main                           app\Main.hs:(6,1)-(9,31)                          384           1    0.0    0.0     0.0    0.0
+ CAF:main2                        Main                           <no location info>                                199           0    0.0    0.0     0.0    0.0
+ CAF:parse                        Lib                            src\Lib.hs:10:1-5                                 233           0    0.0    0.0     0.0    0.0
+  parse                           Lib                            src\Lib.hs:10:1-37                                387           1    0.0    0.0     0.0    0.0
+ CAF:parse2                       Lib                            <no location info>                                231           0    0.0    0.0     0.0    0.0
+  parse                           Lib                            src\Lib.hs:10:1-37                                399           0    0.0    0.0     0.0    0.0
+   splitOn                        Data.List.Split.Internals      src\Data\List\Split\Internals.hs:421:1-42         400           0    0.0    0.0     0.0    0.0
+    dropDelims                    Data.List.Split.Internals      src\Data\List\Split\Internals.hs:295:1-39         402           1    0.0    0.0     0.0    0.0
+ CAF:parse3                       Lib                            <no location info>                                230           0    0.0    0.0     0.0    0.0
+  parse                           Lib                            src\Lib.hs:10:1-37                                411           0    0.0    0.0     0.0    0.0
+   splitOn                        Data.List.Split.Internals      src\Data\List\Split\Internals.hs:421:1-42         412           0    0.0    0.0     0.0    0.0
+    onSublist                     Data.List.Split.Internals      src\Data\List\Split\Internals.hs:278:1-72         413           0    0.0    0.0     0.0    0.0
+ CAF:parse_f                      Lib                            <no location info>                                232           0    0.0    0.0     0.0    0.0
+  parse                           Lib                            src\Lib.hs:10:1-37                                389           0    0.0    0.0     0.0    0.0
+   splitOn                        Data.List.Split.Internals      src\Data\List\Split\Internals.hs:421:1-42         390           1    0.0    0.0     0.0    0.0
+    onSublist                     Data.List.Split.Internals      src\Data\List\Split\Internals.hs:278:1-72         398           1    0.0    0.0     0.0    0.0
+    split                         Data.List.Split.Internals      src\Data\List\Split\Internals.hs:249:1-68         391           1    0.0    0.0     0.0    0.0
+     delimiter                    Data.List.Split.Internals      src\Data\List\Split\Internals.hs:25:30-38         410           1    0.0    0.0     0.0    0.0
+     postProcess                  Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(163,1)-(168,45) 394           1    0.0    0.0     0.0    0.0
+      condensePolicy              Data.List.Split.Internals      src\Data\List\Split\Internals.hs:32:30-43         405           1    0.0    0.0     0.0    0.0
+      delimPolicy                 Data.List.Split.Internals      src\Data\List\Split\Internals.hs:27:30-40         397           1    0.0    0.0     0.0    0.0
+      doMerge                     Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(205,1)-(207,14) 396           1    0.0    0.0     0.0    0.0
+      finalBlankPolicy            Data.List.Split.Internals      src\Data\List\Split\Internals.hs:37:30-45         422           1    0.0    0.0     0.0    0.0
+      initBlankPolicy             Data.List.Split.Internals      src\Data\List\Split\Internals.hs:35:30-44         420           1    0.0    0.0     0.0    0.0
+ CAF:resultList_rhU               Lib                            src\Lib.hs:25:1-10                                234           0    0.0    0.0     0.0    0.0
+  resultList                      Lib                            src\Lib.hs:25:1-35                                434           1    0.0    0.0     0.0    0.0
+ main                             Main                           app\Main.hs:(6,1)-(9,31)                          385           0    0.0    0.1   100.0   99.9
+  main.ws                         Main                           app\Main.hs:8:9-24                                386           1    0.0    0.0     0.0    0.0
+   parse                          Lib                            src\Lib.hs:10:1-37                                388           0    0.0    0.0     0.0    0.0
+    splitOn                       Data.List.Split.Internals      src\Data\List\Split\Internals.hs:421:1-42         392           0    0.0    0.0     0.0    0.0
+     split                        Data.List.Split.Internals      src\Data\List\Split\Internals.hs:249:1-68         393           0    0.0    0.0     0.0    0.0
+      fromElem                    Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(116,1)-(117,24) 447          40    0.0    0.0     0.0    0.0
+      splitInternal               Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(139,1)-(148,70) 406          40    0.0    0.0     0.0    0.0
+       splitInternal.(...)        Data.List.Split.Internals      src\Data\List\Split\Internals.hs:144:3-31         408          40    0.0    0.0     0.0    0.0
+        breakDelim                Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(151,1)-(156,36) 409         239    0.0    0.0     0.0    0.0
+         matchDelim               Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(73,1)-(77,23)   414         278    0.0    0.0     0.0    0.0
+          matchDelim.\            Data.List.Split.Internals      src\Data\List\Split\Internals.hs:76:60-71         430          39    0.0    0.0     0.0    0.0
+         breakDelim.(...)         Data.List.Split.Internals      src\Data\List\Split\Internals.hs:155:25-52        428         199    0.0    0.0     0.0    0.0
+         breakDelim.match         Data.List.Split.Internals      src\Data\List\Split\Internals.hs:155:25-52        427         195    0.0    0.0     0.0    0.0
+         breakDelim.ys            Data.List.Split.Internals      src\Data\List\Split\Internals.hs:155:25-52        448         161    0.0    0.0     0.0    0.0
+       splitInternal.xs           Data.List.Split.Internals      src\Data\List\Split\Internals.hs:144:3-31         407          40    0.0    0.0     0.0    0.0
+       splitInternal.match        Data.List.Split.Internals      src\Data\List\Split\Internals.hs:144:3-31         425          39    0.0    0.0     0.0    0.0
+       splitInternal.toSplitList  Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(146,3)-(148,70) 426          39    0.0    0.0     0.0    0.0
+      postProcess                 Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(163,1)-(168,45) 395           0    0.0    0.0     0.0    0.0
+       doCondense                 Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(178,1)-(183,20) 404           1    0.0    0.0     0.0    0.0
+       doDrop                     Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(172,1)-(173,14) 418           1    0.0    0.0     0.0    0.0
+       dropFinal                  Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(236,1)-(241,26) 421           1    0.0    0.0     0.0    0.0
+       dropInitial                Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(231,1)-(232,19) 419           1    0.0    0.0     0.0    0.0
+       insertBlanks               Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(189,1)-(191,38) 416           1    0.0    0.0     0.0    0.0
+        insertBlanks'             Data.List.Split.Internals      src\Data\List\Split\Internals.hs:(195,1)-(201,49) 417          79    0.0    0.0     0.0    0.0
+  solve                           Lib                            src\Lib.hs:16:1-63                                423           1    0.0    0.0   100.0   99.8
+   minimumBy                      Lib                            src\Lib.hs:13:1-58                                424           1    0.0    0.0   100.0   99.8
+    minimumBy.\                   Lib                            src\Lib.hs:13:47-54                               431          40    0.0    0.0   100.0   99.8
+     largestResultSet             Lib                            src\Lib.hs:19:1-99                                432          40    0.0    1.0   100.0   99.8
+      potentialMatches            Lib                            src\Lib.hs:22:1-77                                435        9720    0.0    9.1   100.0   98.8
+       isMatch                    Lib                            src\Lib.hs:(31,1)-(33,74)                         436      388800   16.7    8.8   100.0   89.7
+        isMatchChar               Lib                            src\Lib.hs:(36,1)-(45,42)                         445      580800   33.3   19.3    83.3   77.3
+         ==                       Lib                            src\Lib.hs:7:47-48                                446     1161600    0.0    0.0     0.0    0.0
+         isMatchChar.freeMatch    Lib                            src\Lib.hs:44:15-52                               452      370868   16.7    0.0    16.7    0.0
+         isMatchChar.guessChar    Lib                            src\Lib.hs:40:15-40                               456      370868    0.0    0.0     0.0    0.0
+         isMatchChar.freeChars    Lib                            src\Lib.hs:41:15-47                               453      255412   33.3   58.0    33.3   58.0
+         isMatchChar.freeNotMatch Lib                            src\Lib.hs:45:15-42                               451      193600    0.0    0.0     0.0    0.0
+         isMatchChar.matched      Lib                            src\Lib.hs:42:15-55                               450      193600    0.0    0.0     0.0    0.0
+         isMatchChar.notMatch     Lib                            src\Lib.hs:43:15-36                               449      193600    0.0    0.0     0.0    0.0
+        isMatch.indexedResults    Lib                            src\Lib.hs:32:11-43                               437        9720    0.0    2.6     0.0    2.6
+        isMatch.freeIndices       Lib                            src\Lib.hs:33:11-74                               454        8968    0.0    1.0     0.0    1.0
+         ==                       Lib                            src\Lib.hs:7:47-48                                455       43313    0.0    0.0     0.0    0.0
