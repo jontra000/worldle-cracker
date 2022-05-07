@@ -13,8 +13,15 @@ minimumBy :: Ord a => (a -> Int) -> [a] -> a
 minimumBy _ [] = error "No remaining matching words. You probably made a mistake."
 minimumBy f xs = snd <$> minimum $ map (\x -> (f x, x)) xs
 
-solve :: [String] -> String
-solve wordList = minimumBy (largestResultSet wordList) wordList
+solveHard :: [String] -> String
+solveHard wordList = solve wordList wordList
+
+solve :: [String] -> [String] -> String
+solve fullList filteredList = minimumBy (minimumPositive . largestResultSet filteredList) fullList
+
+minimumPositive :: Int -> Int
+minimumPositive 0 = 100000
+minimumPositive x = abs x
 
 largestResultSet :: [String] -> String -> Int
 largestResultSet wordList word = maximum $ map (length . filterResults wordList word) allResults

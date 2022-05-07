@@ -1,31 +1,41 @@
 module Main where
 
-import Lib (solve, parseInput, filterResults, parseResult, Result, UserAction (Quit, Results))
+import Lib (solve, solveHard, largestResultSet, parseInput, filterResults, parseResult, Result, UserAction (Quit, Results))
 import qualified Data.Maybe
+import System.Environment (getArgs)
+import Data.List (intercalate)
 
 main :: IO ()
 main = do
+    args <- getArgs
     input <- readFile "wordle.txt"
     let initWord = "arise"
         ws = parseInput input
-    next initWord ws
+        hardMode = "--hard" `elem` args
+        solver = if hardMode then solveHard else solve ws
+    next solver initWord ws
 
-next :: String -> [String] -> IO ()
-next guess wordList = do
+next :: ([String] -> String) -> String -> [String] -> IO ()
+next solver guess wordList = do
     putStrLn guess
     result <- nextLine
-    next' result guess wordList 
+    next' solver result guess wordList 
 
-next' :: UserAction -> String -> [String] -> IO ()
-next' Quit _ _ = return ()
-next' (Results result) guess wordList =
+next' :: ([String] -> String) -> UserAction -> String -> [String] -> IO ()
+next' _ Quit _ _ = return ()
+next' solver (Results result) guess wordList =
     let wordList' = filterResults wordList guess result
-        guess' = solve wordList'
-    in  if null wordList'
-            then do
-                 putStrLn "No more possible matches. Perhaps you made a mistake?"
-                 return ()
-            else next guess' wordList'
+        guess' = solver wordList'
+    in  case wordList' of
+            [] -> do
+                putStrLn "No more possible matches. Perhaps you made a mistake?"
+                return ()
+            [x] -> do
+                putStrLn x
+                putStrLn "solved"
+                return ()
+            _ ->
+                next solver guess' wordList'
 
 nextLine :: IO UserAction
 nextLine = retryIO readResult
